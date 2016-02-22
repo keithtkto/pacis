@@ -1,4 +1,4 @@
-#Pacis - The payroll and timesheet web application
+#Pacis - The simple and mobile time card and payroll system
 
 ###Hi, welcome to the markdown document of my app Pacis!
 
