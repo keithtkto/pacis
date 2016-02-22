@@ -12,6 +12,13 @@ h1 {
 
 h5 {
   margin: 20px auto;
+  font-size: 18px;
+  text-align: left;
+}
+
+h6 {
+  padding: 20px auto;
+  margin-bottom: 25px;
 }
 
 div {
@@ -35,6 +42,7 @@ strong {
 
 a {
   color: #54C7C3;
+  text-decoration: none;
 }
 
 footer {
@@ -42,7 +50,18 @@ footer {
   color: #768187;
   padding: 0 50px;
   margin: 0 -50px;
+  height: 200%;
+}
 
+ul {
+  list-style: none;
+  font-size: 16px;
+  text-align: left;
+  padding: 0;
+}
+
+li {
+  line-height: 1.7em;
 }
 
 .front-page-sign-in {
@@ -50,7 +69,6 @@ footer {
   width: 110%
   height: 800px;
   position: relative;
-
 }
 
 
@@ -128,4 +146,9 @@ footer {
   margin: 0 60px;
   margin-top: -40px;
   border-radius: 10px;
+}
+
+
+.footer-info > div {
+  margin: 0 auto;
 }
