@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
-    @user = User.new(user_params)
+    @user = @company.users.build (user_params)
 
     if @user.save
       flash[:message] = " Hello, '#{@username}!"

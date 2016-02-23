@@ -16,6 +16,7 @@ User.create( first_name: "jerry",
              born_on: "01/01/1989",
              username: "jl",
              access_lvl: 0,
+             company_id: 1,
              password: "123",
              password_confirmation: "123",
              company_id: nil
