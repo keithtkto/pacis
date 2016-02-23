@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def new_employee
+    @company = Company.find(params[:company_id])
+    @user = User.new
+  end
+
   def create
     @company = Company.find(params[:company_id])
     @user = @company.users.build (user_params)

@@ -1,0 +1,51 @@
+<h4>Sign up as a new user!</h4>
+
+
+  <div class="form-container">
+    <%= form_for [@company, @user] do |f| %>
+
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
+      </div>
+
+        <div>
+            <%= f.label "First name:" %>
+            <%= f.text_field :first_name %>
+        </div>
+        <div>
+            <%= f.label "Last name:" %>
+            <%= f.text_field :last_name %>
+        </div>
+        <div>
+            <%= f.label "Username:" %>
+            <%= f.text_field :username %>
+        </div>
+        <div>
+            <%= f.label "Email:" %>
+            <%= f.text_field :email %>
+        </div>
+        <div>
+            <%= f.label "Password:" %>
+            <%= f.password_field :password %>
+        </div>
+        <div>
+            <%= f.label "Password confirmation:" %>
+            <%= f.password_field :password_confirmation %>
+        </div>
+
+        <div>
+            <%= f.label "access_level:" %>
+            <%= f.text_field :access_lvl, :value => 3 %>
+        </div>
+
+        <br>
+        <div><%= f.submit "Submit" %></div>
+    <% end %>
+  </div>
