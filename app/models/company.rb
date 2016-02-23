@@ -1,5 +1,7 @@
 class Company < ActiveRecord::Base
-  has_many :users
+  has_many :employees, dependent: :destroy, class_name: "User"
+  belongs_to :owner, class_name: "User"
+
   validates :name, presence: true
   # validates :owner_id, presence: true
   # validates :timezone, presence: true

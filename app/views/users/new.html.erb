@@ -1,19 +1,21 @@
-<h4>Sign up as a new user!</h4>
+<h4>Create an owner for the company!</h4>
 
 
   <div class="form-container">
     <%= form_for [@company, @user] do |f| %>
 
-    <% if @user.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% for message in @user.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-    <% end %>
-      </div>
+      <%= f.hidden_field :is_owner, value: true %>
+
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      <% end %>
+        </div>
 
         <div>
             <%= f.label "First name:" %>

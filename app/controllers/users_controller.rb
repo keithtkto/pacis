@@ -19,9 +19,17 @@ class UsersController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
-    @user = @company.users.build (user_params)
+
+    if params[:user][:is_owner]
+      @user = User.new(user_params)
+    else # is an employee
+      @user = @company.employees.build(user_params)
+    end
 
     if @user.save
+      if params[:user][:is_owner]
+        @company.update_attributes owner: @user
+      end
       flash[:message] = " Hello, '#{@username}!"
       redirect_to root_path
     else
@@ -50,7 +58,7 @@ private
       :password,
       :password_confirmation,
       :access_lvl
-      )
+    )
   end
 
 end
