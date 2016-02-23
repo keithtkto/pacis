@@ -4,6 +4,8 @@
   <div class="form-container">
     <%= form_for [@company, @user] do |f| %>
 
+    <%= f.hidden_field :is_owner, value: false %>
+
     <% if @user.errors.any? %>
       <div class="error_messages">
         <h2>Form is invalid</h2>
@@ -24,8 +26,8 @@
             <%= f.text_field :last_name %>
         </div>
         <div>
-            <%= f.label "Username:" %>
-            <%= f.text_field :username %>
+            <%= f.label "Title:" %>
+            <%= f.text_field :title %>
         </div>
         <div>
             <%= f.label "Email:" %>
@@ -41,8 +43,11 @@
         </div>
 
         <div>
-            <%= f.label "access_level:" %>
-            <%= f.text_field :access_lvl, :value => 3 %>
+            <%= f.label "Access level:" %>
+            <%= f.select :access_lvl, options_for_select([
+              ["Regular Employee", 1],
+              ["Manager", 2],
+            ]) %>
         </div>
 
         <br>

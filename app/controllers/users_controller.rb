@@ -20,24 +20,30 @@ class UsersController < ApplicationController
   def create
     @company = Company.find(params[:company_id])
 
-    if params[:user][:is_owner]
+    if params[:user][:is_owner] == "true"
       @user = User.new(user_params)
       @user.company_id = @company.id
       @user.title = "owner"
-    else # is an employee
-      @user = @company.employees.build(user_params)
-    end
-
-    if @user.save
-      if params[:user][:is_owner]
+      if @user.save
         session[:user_id] = @user.id
         @company.update_attributes owner: @user
+        flash[:notice] = " Hello, '#{@username}!"
+        redirect_to root_path
+      else
+        render :new
       end
-      flash[:message] = " Hello, '#{@username}!"
-      redirect_to root_path
-    else
-      render :new
+    else # is an employee
+      @user = @company.employees.build(user_params)
+      if @user.save
+        session[:user_id] = @user.id
+        flash[:notice] = " Hello, '#{@username}!"
+        redirect_to root_path
+      else
+        render :new_employee
+      end
     end
+
+
   end
 
   def edit
@@ -56,6 +62,7 @@ private
       :last_name,
       :email,
       :phone_num,
+      :title,
       :username,
       :born_on,
       :password,

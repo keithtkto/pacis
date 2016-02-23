@@ -14,10 +14,16 @@
   <img class="logo" src="https://i.imgur.com/XTloRNF.png">
   <p>
     <% if current_user %>
-      Welcome, <strong> <%= current_user.username %> </strong>
-      <%= current_user.title %>
-      of <%= current_company.name %>
+      Welcome,
+      <strong style="text-transform: uppercase">
+        <%= current_user.first_name %>
+      </strong>
+      <%= current_user.title %> of
+      <strong style="text-transform: capitalize">
+        <%= current_company.name %>
+      </strong>
       <%= link_to 'Logout', session_path('dummy'), method: :delete %>
+
     <% else %>
       <%= link_to 'Login', login_path %>
     <% end %>
