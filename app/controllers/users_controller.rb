@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
     if params[:user][:is_owner]
       @user = User.new(user_params)
+      @user.company_id = @company.id
     else # is an employee
       @user = @company.employees.build(user_params)
     end

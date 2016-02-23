@@ -1,2 +1,10 @@
-<h1>User#index</h1>
+<h1>List of employee in Company <%= @company.name %></h1>
 <p>Find me in app/views/user/index.html.erb</p>
+
+
+<% @users.each do |user| %>
+  <p>
+   <%= user.first_name %>
+  </p>
+
+<% end %>
