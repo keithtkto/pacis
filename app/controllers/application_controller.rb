@@ -5,9 +5,14 @@ class ApplicationController < ActionController::Base
 
 private
   helper_method :current_user
+  helper_method :current_company
 
   def current_user
     current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_company
+    current_company = Company.find(current_user.company_id)
   end
 
 end

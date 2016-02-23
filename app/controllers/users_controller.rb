@@ -43,7 +43,8 @@ private
       :username,
       :born_on,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :access_lvl
       )
   end
 

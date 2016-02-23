@@ -12,7 +12,8 @@
   <img class="logo" src="https://i.imgur.com/XTloRNF.png">
   <p>
     <% if current_user %>
-      Welcome, <%= current_user.username %>
+      Welcome, <strong> <%= current_user.username %> </strong>
+      of <%= current_company.name %>
       <%= link_to 'Logout', session_path('dummy'), method: :delete %>
     <% else %>
       <%= link_to 'Login', login_path %>

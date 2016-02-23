@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.decimal :pay_rate
       t.string :born_on
       t.string :username
-      t.integer :access_lvl
+      t.integer :access_lvl, :default => "1"
       t.references :company, index: true, foreign_key: true
       t.string :password_digest
 
