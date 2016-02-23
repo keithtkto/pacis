@@ -5,6 +5,27 @@ body {
   text-align: center;
 }
 
+nav {
+  position: relative;
+}
+
+
+
+.logo {
+  height: 110px;
+  width: 330px;
+  margin: 0;
+}
+
+
+.login {
+  background-image: url(https://i.imgur.com/SZlL0FB.png);
+  background-size: cover;
+  height: 600px;
+  width: 100%;
+}
+
+
 h1 {
   padding: 30px 0 0 0;
   font-size: 40px;
@@ -62,6 +83,10 @@ ul {
 
 li {
   line-height: 1.7em;
+}
+
+.info {
+  clear: bottom;
 }
 
 .front-page-sign-in {
