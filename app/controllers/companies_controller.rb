@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
 
     if @company.save
-      redirect_to root_path
+      redirect_to new_company_user_path(Company.last)
     else
       render :new
     end
