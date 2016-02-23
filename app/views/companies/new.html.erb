@@ -23,19 +23,25 @@
 
   <div>
     <%= f.label "Country:" %>
-    <%= f.text_field :country %>
+    <%= country_select "company", :country, priority_countries: ["US", "CA", "MX", "CU"] %>
   </div>
 
   <div>
     <%= f.label "Timezone:" %>
-    <%= f.time_zone_select :timezone %>
-    <%#= f.time_zone_select :time_zone, nil, include_blank: true %>
-
+    <%= f.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones, default: "Pacific Time (US & Canada)" %>
   </div>
 
   <div>
     <%= f.label "Paid period start-day:" %>
-    <%= f.text_field :week_start_day %>
+    <%= f.select :week_start_day, options_for_select([
+      ["Monday", 1],
+      ["Tuesday", 2],
+      ["Wednesday", 3],
+      ["Thursday", 4],
+      ["Friday", 5],
+      ["Saturday", 6],
+      ["Sunday", 7]
+    ]) %>
   </div>
 
   <div>
