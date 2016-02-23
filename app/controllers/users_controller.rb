@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       if params[:user][:is_owner]
+        session[:user_id] = @user.id
         @company.update_attributes owner: @user
       end
       flash[:message] = " Hello, '#{@username}!"
