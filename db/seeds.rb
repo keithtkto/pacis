@@ -20,6 +20,9 @@ ga = Company.create(
   owner:    keith
 )
 
+keith.company_id = ga.id
+keith.save
+
 # keith.owned_companies << ga
 
 ga.employees.create(
