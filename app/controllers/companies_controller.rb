@@ -1,5 +1,9 @@
 class CompaniesController < ApplicationController
   def index
+    if current_user
+      redirect_to company_path(current_company)
+    end
+
     @companies = Company.all
   end
 
