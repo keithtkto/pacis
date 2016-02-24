@@ -24,6 +24,16 @@ class User < ActiveRecord::Base
   end
 
 
+  def sum_hours
+    sum_hours = 0;
+    User.find(self.id).shifts.each do |sh|
+      sum_hours += sh.logged_time
+    end
+    sum_hours
+
+  end
+
+
 private
 
   def self_pw

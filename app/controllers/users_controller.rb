@@ -4,10 +4,12 @@ class UsersController < ApplicationController
     if current_user.access_lvl == 1
       redirect_to company_user_path(current_company.id,current_user.id)
     end
+    @shifts = Shift.all
   end
 
   def show
     @user= User.find(params[:id])
+    @shifts = Shift.all
   end
 
   def new

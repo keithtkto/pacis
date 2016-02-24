@@ -6,6 +6,8 @@
       <th>Last Name</th>
       <th>Title</th>
       <th>Manager/Employee</th>
+      <th>Logged Hours</th>
+      <th>In a shift?</th>
     </tr>
   </thead>
   <tr>
@@ -13,7 +15,9 @@
     <td><%= link_to current_user.last_name, company_user_path(current_company.id,current_user.id) %></td>
     <td><%= link_to current_user.title, company_user_path(current_company.id,current_user.id) %></td>
     <td><%= link_to current_user.access, company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= current_user.sum_hours %></td>
     <td><%= link_to "edit", edit_company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= link_to "Clock in", new_user_shift_path(current_user) %></td>
   </tr>
   </table>
 <hr>

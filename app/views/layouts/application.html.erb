@@ -14,22 +14,24 @@
   <ul>
   <img class="logo" src="https://i.imgur.com/XTloRNF.png">
     <% if current_user %>
-      <li>
-        Welcome,
-        <strong style="text-transform: uppercase">
-          <%= current_user.first_name %>
-        </strong>
-        <%= current_user.title %> of
-        <strong style="text-transform: capitalize">
-          <%= current_company.name %>
-        </strong>
-      </li>
-      <li><%= link_to 'Logout', session_path('dummy'), method: :delete %></li>
+      <li class="log-out-btn"><%= link_to 'Log-out', session_path('dummy'), method: :delete %></li>
+      <div class="welcome">
+        <li>
+          Welcome,
+          <strong style="text-transform: uppercase">
+            <%= current_user.first_name %>
+          </strong>
+          <%= current_user.title %> of
+          <strong style="text-transform: capitalize">
+            <%= current_company.name %>
+          </strong>
+        </li>
+      </div>
 
     <% else %>
 
-    <li><%= link_to 'Sign-in', login_path, :class => "sign-in-buttom"  %><li>
-    <li><%= link_to 'Sign-up', new_company_path, :class => "sign-up-buttom" %><li>
+    <li><%= link_to 'Sign-in', login_path, :class => "sign-in-btn"  %><li>
+    <li><%= link_to 'Sign-up', new_company_path, :class => "sign-up-btn" %><li>
     <% end %>
   </ul>
 </header>

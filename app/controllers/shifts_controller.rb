@@ -14,14 +14,11 @@ class ShiftsController < ApplicationController
 
     def create
       @user = User.find(params[:user_id])
-      @shift = Shift.new(shift_params)
-
+      @shift = @user.shifts.build shift_params
+      @shift.in_at = DateTime.now
+      @shift.check_in = true
       if @shift.save
-          @shift.in_at = @shift.created_at
-          @shift.check_in = true
-          if @shift.save
-            redirect_to edit_user_shift_path(@user,@shift)
-          end
+        redirect_to edit_user_shift_path(@user,@shift)
       else
         render :new
       end
@@ -37,7 +34,8 @@ class ShiftsController < ApplicationController
       @shift = Shift.find(params[:id])
       if @shift.update_attributes(shift_params)
 
-        @shift.out_at = @shift.updated_at
+        @shift.out_at = DateTime.now
+        @shift.logged_time = @shift.logged_time_in_hr
         if @shift.save
           @shift.check_in = false
         end

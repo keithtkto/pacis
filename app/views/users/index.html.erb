@@ -11,6 +11,8 @@
         <th>Last Name</th>
         <th>Title</th>
         <th>Manager/Employee</th>
+        <th>Logged Hours</th>
+        <th>In a shift?</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
@@ -20,6 +22,7 @@
           <td><%= link_to user.last_name, company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to user.title, company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to user.access, company_user_path(user.company_id,user.id) %></td>
+          <td><%= user.sum_hours %></td>
           <% if user.access_lvl != 3 && current_user != user %>
           <td><%= link_to "edit", edit_company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to 'Remove', company_user_path(user.company_id,user.id),
@@ -31,6 +34,12 @@
     <% end %>
   </table>
 <% end %>
+
+
+
+Hours
+<%= current_user.sum_hours %>
+
 
 
 
