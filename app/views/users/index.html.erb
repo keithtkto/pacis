@@ -1,5 +1,19 @@
 <h1>BIG</h1>
-<% if current_user.access_lvl > 1 %>
+
+<h2>Your info</h2>
+<table class="table">
+  <tr>
+    <td><%= link_to current_user.first_name, edit_company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= link_to current_user.last_name, edit_company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= link_to current_user.title, edit_company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= link_to current_user.access_lvl, edit_company_user_path(current_company.id,current_user.id) %></td>
+    <td><%= link_to "edit", edit_company_user_path(current_company.id,current_user.id) %></td>
+  </tr>
+  </table>
+<hr>
+
+
+<%# if current_user.access_lvl > 1 %>
 <h1>List of employee in Company <%= current_company.name %></h1>
 <%= link_to "Enroll a new employee", company_users_new_employee_path(current_company.id) %>
   <table class="table">
@@ -10,8 +24,9 @@
           <td><%= link_to user.last_name, edit_company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to user.title, edit_company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to user.access_lvl, edit_company_user_path(user.company_id,user.id) %></td>
-          <% if user.access_lvl != 3 %>
-          <td><%= link_to 'Delete this employee', company_user_path(current_company.id,user.id),
+          <% if user.access_lvl != 3 && current_user != user %>
+          <td><%= link_to "edit", edit_company_user_path(current_company.id,current_user.id) %></td>
+          <td><%= link_to 'Remove', company_user_path(current_company.id,user.id),
               method: :delete, data: { confirm: 'Are you sure, all employee info will be lost.' } %>
           </td>
           <% end %>
@@ -19,7 +34,8 @@
       <% end %>
     <% end %>
   </table>
-<% end %>
+<%# end %>
+
 
 
 
