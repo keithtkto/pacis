@@ -13,7 +13,7 @@ private
   end
 
   def current_company
-    current_company = Company.find(current_user.company_id)
+    current_company ||= Company.find(current_user.company_id)
   end
 
 end

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def new_pw
     @company = Company.find(params[:company_id])
-    @user = User.new
+    @user = User.find(params[:id])
   end
 
   def create
@@ -57,10 +57,18 @@ class UsersController < ApplicationController
 
   def edit
     @company = Company.find(params[:company_id])
-    @user = User.new
+    @user = User.find(params[:id])
   end
 
   def update
+    @company = Company.find(params[:company_id])
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      session[:user_id] = @user.id
+      redirect_to company_users_path(current_company)
+    else
+      render :edit
+    end
   end
 
 

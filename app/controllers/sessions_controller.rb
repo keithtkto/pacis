@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       if user.authenticate( user.first_name[0] + user.last_name[0] + "123" )
         redirect_to company_user_new_pw_path(user.company_id,user.id)
       else
-
         session[:user_id] = user.id
         redirect_to company_users_path(user.company_id), notice: "Logged in!"
       end
