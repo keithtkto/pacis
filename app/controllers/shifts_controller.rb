@@ -36,11 +36,15 @@ class ShiftsController < ApplicationController
       @user = User.find(params[:user_id])
       @shift = Shift.find(params[:id])
       if @shift.update_attributes(shift_params)
+
         @shift.out_at = @shift.updated_at
-        @shift.check_in = false
-        if @shift.update_attributes(shift_params)
-          redirect_to new_user_shift_path(@user)
+        if @shift.save
+          @shift.check_in = false
         end
+
+
+          redirect_to new_user_shift_path(@user)
+
       else
         render :edit
       end
