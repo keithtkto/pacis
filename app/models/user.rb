@@ -11,6 +11,15 @@ class User < ActiveRecord::Base
   validates :title, presence: true
 
 
+  def access
+      if self.access_lvl == 3
+        "Owner"
+      elsif self.access_lvl == 2
+        "Manager"
+      else
+        "Regular Employee"
+      end
+  end
 
 
 private

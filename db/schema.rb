@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20160223182834) do
     t.decimal  "pay_rate"
     t.string   "born_on"
     t.string   "username"
-    t.integer  "access_lvl"
+    t.integer  "access_lvl",      default: 1
     t.integer  "company_id"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree

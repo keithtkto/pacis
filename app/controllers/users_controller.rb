@@ -67,7 +67,6 @@ class UsersController < ApplicationController
     @company = Company.find(params[:company_id])
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      session[:user_id] = @user.id
       redirect_to company_users_path(current_company)
     else
       render :edit
