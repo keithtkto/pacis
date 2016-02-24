@@ -14,10 +14,17 @@ class ShiftsController < ApplicationController
 
     def create
       @user = User.find(params[:user_id])
+      @shift = Shift.new(shift_params)
 
+      if @shift.save
+          @shift.in_at = @shift.created_at
+          @shift.check_in = true
+          if @shift.save
+            redirect_to edit_user_shift_path(@user,@shift)
+          end
+      else
+        render :new
       end
-
-
     end
 
     def edit
@@ -28,8 +35,12 @@ class ShiftsController < ApplicationController
     def update
       @user = User.find(params[:user_id])
       @shift = Shift.find(params[:id])
-      if @shift.update_attributes(user_params)
-        redirect_to company_user_path(current_company)
+      if @shift.update_attributes(shift_params)
+        @shift.out_at = @shift.updated_at
+        @shift.check_in = false
+        if @shift.update_attributes(shift_params)
+          redirect_to new_user_shift_path(@user)
+        end
       else
         render :edit
       end
@@ -46,22 +57,17 @@ class ShiftsController < ApplicationController
     end
 
 
-  private
-    def user_params
-      params.require(:user).permit(
-        :first_name,
-        :last_name,
-        :email,
-        :phone_num,
-        :title,
-        :username,
-        :born_on,
-        :password,
-        :password_confirmation,
-        :access_lvl
-      )
-    end
-
-
-
+private
+  def shift_params
+    params.require(:shift).permit(
+      :payed,
+      :in_at,
+      :out_at,
+      :lat_in,
+      :long_in,
+      :lat_out,
+      :long_out,
+      :user_id
+    )
+  end
 end

@@ -1,0 +1,12 @@
+<h1>Time Clock Out</h1>
+
+
+<%= form_for [@user,@shift] do |f| %>
+
+    <%= f.label "Clock-out" %>
+    <div class="hidden">
+      <%= f.text_field :out_at, :value => DateTime.now %>
+    </div>
+
+  <%= f.submit %>
+<% end %>
