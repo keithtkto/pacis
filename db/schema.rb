@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223182834) do
+ActiveRecord::Schema.define(version: 20160224055806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 20160223182834) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "shifts", force: :cascade do |t|
+    t.boolean  "payed"
+    t.datetime "in_at"
+    t.datetime "out_at"
+    t.float    "lat_in"
+    t.float    "long_in"
+    t.float    "lat_out"
+    t.float    "long_out"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shifts", ["user_id"], name: "index_shifts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -45,5 +60,6 @@ ActiveRecord::Schema.define(version: 20160223182834) do
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
 
+  add_foreign_key "shifts", "users"
   add_foreign_key "users", "companies"
 end

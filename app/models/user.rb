@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   belongs_to :company # as employee
   has_many :owned_companies, foreign_key: "owner_id", class_name: "Company"
 
+  has_many :shifts
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
