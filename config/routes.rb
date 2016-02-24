@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :companies do
     get '/users/new_employee' , to: 'users#new_employee'
+    get '/users/:id/new_pw', to: 'users#new_pw', :as => 'user_new_pw'
     resources :users
   end
 

@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def new_pw
+    @company = Company.find(params[:company_id])
+    @user = User.new
+  end
+
   def create
     @company = Company.find(params[:company_id])
 
@@ -34,10 +39,14 @@ class UsersController < ApplicationController
       end
     else # is an employee
       @user = @company.employees.build(user_params)
+      @user.password = "123"
+      @user.password_confirmation = "123"
       if @user.save
-        session[:user_id] = @user.id
+        @user.password = @user.first_name[0] + @user.last_name[0] + "123"
+        @user.password_confirmation =  @user.first_name[0] + @user.last_name[0] +  "123"
+        @user.save
         flash[:notice] = " Hello, '#{@username}!"
-        redirect_to root_path
+        redirect_to company_users_path(current_company)
       else
         render :new_employee
       end
@@ -47,13 +56,23 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @company = Company.find(params[:company_id])
+    @user = User.new
   end
 
   def update
   end
 
+
+
+
   def destroy
+    # @company = Company.find(params[:company_id])
+    @user= User.find(params[:id])
+    @user.destroy
+    redirect_to company_users_path
   end
+
 
 private
   def user_params
