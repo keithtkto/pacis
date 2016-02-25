@@ -40,7 +40,7 @@ class ShiftsController < ApplicationController
       if @shift.save
         redirect_to new_user_shift_path(@user)
       else
-      render :edit
+        render :edit
       end
     end
   end

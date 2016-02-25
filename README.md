@@ -10,3 +10,10 @@ Pacis is a web application for small bussiness payroll and time card management.
 ###[Trello link](https://trello.com/b/rp8rFFZV/wdi-project-2-crud-web-app-pacis)
 
 ###[Github page](https://github.com/keithtkto/pacis)
+
+
+Geocoder
+
+Parse with time
+
+JS does not work 

@@ -378,7 +378,7 @@ td {
 input {
   cursor: pointer;
   margin: 10px;
-  width: 100px;
+  width: 130px;
   border-radius: 11px;
   text-decoration: none;
   padding: 0.5em;
@@ -399,6 +399,11 @@ input {
   color: white;
   border: 2px #54C7C3 solid;
   background: #54C7C3;
+
+}
+
+.new:hover {
+  background: #4bb3af;
 
 }
 
@@ -442,7 +447,7 @@ input {
 }
 
 .timer {
-  padding: 50px;
+  padding: 25px;
 }
 
 /*rails items*/

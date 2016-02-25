@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
+
+
   # validates :username, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :title, presence: true
+  # validates :pay_rate, numericality: true
 
 
   def access
@@ -27,7 +29,9 @@ class User < ActiveRecord::Base
   def sum_hours
     sum_hours = 0;
     User.find(self.id).shifts.each do |sh|
-      sum_hours += sh.logged_time
+      if sh.logged_time != nil
+        sum_hours += sh.logged_time
+      end
     end
     sum_hours
   end

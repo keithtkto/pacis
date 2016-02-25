@@ -1,22 +1,20 @@
-<h1>Time Clock Out</h1>
-<%= link_to "Back to User", company_users_path(@user) %>
-<br>
-<div class="timer">
-  <label> This session </label> <br>
-  <label id="hours">--</label><label> hr </label><label id="minutes">--</label><label> min </label><label id="seconds">--</label><label> sec</label>
-  <label class="hidden" id="hidden"><%= Time.now - @shift.created_at %></label>
-</div>
-<%= form_for [@user,@shift] do |f| %>
+<h2>Click clock-out button below to end this shift!</h2>
 
+<%= form_for [@user,@shift] do |f| %>
   <div class="hidden">
     <%= f.text_field :out_at, :value => DateTime.now %>
   </div>
-
   <%= f.submit "Clock Out!", :class => "btn-out" %>
 <% end %>
 
+<div class="timer">
+  <label> This Shift </label> <br>
+  <label id="hours">--</label><label> hr </label><label id="minutes">--</label><label> min </label><label id="seconds">--</label><label> sec</label>
+  <label class="hidden" id="hidden"><%= Time.now - @shift.created_at %></label>
+</div>
 
 
+<%= link_to "Back to User", company_users_path(@user) %>
 
 
 

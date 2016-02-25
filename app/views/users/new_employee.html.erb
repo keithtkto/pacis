@@ -1,6 +1,8 @@
-<h4>Enroll a new employee!</h4>
+<h2>Please fill in form to enroll new employee!</h2>
 
 
+<div class="flex">
+  <div class="new-com-sign-up">
 <div class="form-container">
   <%= form_for [@company, @user] do |f| %>
     <%= f.hidden_field :is_owner, value: false %>
@@ -14,46 +16,49 @@
           </ul>
         </div>
       <% end %>
-      <div>
-          <%= f.label "First name:" %>
-          <%= f.text_field :first_name %> *
+      <div class="field">
+          <%= f.label "First name" %><br>
+          <%= f.text_field :first_name, :placeholder => "First Name*" %>
       </div>
-      <div>
-          <%= f.label "Last name:" %>
-          <%= f.text_field :last_name %> *
+      <div class="field">
+          <%= f.label "Last name" %><br>
+          <%= f.text_field :last_name, :placeholder => "Last Name*" %>
       </div>
-      <div>
-          <%= f.label "Email:" %>
-          <%= f.text_field :email %> *
+      <div class="field">
+          <%= f.label "Email" %><br>
+          <%= f.text_field :email, :placeholder => "Email*" %>
       </div>
-      <div>
-          <%= f.label "Date of Birth:" %>
+      <div class="field">
+          <%= f.label "Date of Birth" %><br>
           <%= f.date_field :born_on, :start_year => 1899 %>
 
       </div>
-      <div>
-          <%= f.label "Title:" %>
-          <%= f.text_field :title %>
+      <div class="field">
+          <%= f.label "Work title" %><br>
+          <%= f.text_field :title, :placeholder => "title" %>
       </div>
-      <div>
-          <%= f.label "Hourly:" %>
-          <%= f.text_field :pay_rate %>
+      <div class="field">
+          <%= f.label "Hourly rate" %><br>
+          <%= f.text_field :pay_rate, :placeholder => "Pay rate" %>
       </div>
-      <div>
-          <%= f.label "Access level:" %>
+      <div class="field">
+          <%= f.label "Access level" %><br>
           <%= f.select :access_lvl, options_for_select([
             ["Regular Employee", 1],
             ["Manager", 2],
-          ]) %> *
+          ]) %>
       </div>
-      <div>
+      <div class="field">
           <%= f.label "Password preset to employee's initial" %>
       </div>
 
 
 
           <br>
-      <div><%= f.submit "Submit" %></div>
+      <div>
+        <%= f.submit "Submit", :class => "new" %>
+      </div>
   <% end %>
 </div>
-
+</div>
+</div>

@@ -29,7 +29,6 @@ class UsersController < ApplicationController
 
   def create
     @company = Company.find(params[:company_id])
-
     if params[:user][:is_owner] == "true"
       @user = User.new(user_params)
       @user.company_id = @company.id
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         @company.update_attributes owner: @user
         flash[:notice] = " Hello, '#{@username}!"
-        redirect_to root_path
+        redirect_to company_users_path(@user.company_id)
       else
         render :new
       end
@@ -56,8 +55,6 @@ class UsersController < ApplicationController
         render :new_employee
       end
     end
-
-
   end
 
   def edit
@@ -75,16 +72,12 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-
   def destroy
     # @company = Company.find(params[:company_id])
     @user= User.find(params[:id])
     @user.destroy
     redirect_to company_users_path
   end
-
 
 private
   def user_params

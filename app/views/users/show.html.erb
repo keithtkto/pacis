@@ -1,4 +1,4 @@
-<h1>Your Employee Info</h1>
+<h2>Your Info</h2>
     <h3><%= link_to "To Clock In", new_user_shift_path(@user) %></h3>
 <table class="table">
   <thead>
@@ -17,9 +17,31 @@
     <td><%= @user.last_name %></td>
     <td><%= @user.title %></td>
     <td><%= @user.access %></td>
-    <td><%= link_to @user.sum_hours,edit_company_user_path(@user.company_id,@user.id) %></td>
+    <td><%= @user.sum_hours %></td>
     <td><%= current_user.checked_in %></td>
     <td><%= link_to "Edit Info", edit_company_user_path(@user.company_id,@user.id) %></td>
   </tr>
   </table>
 <hr>
+
+<h2>List of logged shifts</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Time Clocked in</th>
+      <th>Time Clocked Out</th>
+      <th>Shift in hour</th>
+
+    </tr>
+  </thead>
+<% @shifts.where(user_id: @user.id).each do |p|  %>
+  <tr>
+<%binding.pry%>
+    <td><%= Time.parse(p.in_at).strftime("%d-%m-%Y") %></td>
+    <td><%= p.out_at %></td>
+    <td><%= p.logged_time %></td>
+
+<% end %>
+  </tr>
+  </table>
+
