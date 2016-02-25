@@ -10,7 +10,6 @@
 <div class="timer">
   <label> This Shift </label> <br>
   <label id="hours">--</label><label> hr </label><label id="minutes">--</label><label> min </label><label id="seconds">--</label><label> sec</label>
-  <label class="hidden" id="hidden"><%= Time.now - @shift.created_at %></label>
 </div>
 
 
@@ -30,8 +29,8 @@
     var hoursLabel = document.getElementById("hours");
     var minutesLabel = document.getElementById("minutes");
     var secondsLabel = document.getElementById("seconds");
-    var totalSec = document.getElementById("hidden").innerHTML;
-    var totalSeconds = parseInt(totalSec);
+    var totalSeconds = parseInt(<%= Time.now - @shift.created_at %>);
+
 
     setInterval(setTime, 1000);
 

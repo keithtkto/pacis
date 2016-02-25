@@ -502,3 +502,12 @@ input {
 ul {
   text-align: center;
 }
+
+
+.star {
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    margin-right: -8px;
+}

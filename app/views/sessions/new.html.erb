@@ -1,13 +1,20 @@
 <h1>Login</h1>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+<div class="flex">
+ <div class="new-com-sign-up">
+    <%= form_tag sessions_path do %>
+      <div class="field">
+        <%= label_tag :email %><label class="star">*</label><br>
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+      <div class="field">
+        <%= label_tag :password %><label class="star">*</label><br>
+        <%= password_field_tag :password %>
+      </div>
+      <div class="actions"><%= submit_tag "Log in" %></div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+</div>
+
+<span class="star">*</span>
+

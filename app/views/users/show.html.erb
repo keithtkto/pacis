@@ -1,5 +1,11 @@
 <h2>Your Info</h2>
-    <h3><%= link_to "To Clock In", new_user_shift_path(@user) %></h3>
+    <h3>
+      <% if @user.shifts.last.check_in == false %>
+        <%= link_to "Clock In", new_user_shift_path(@user) %>
+      <% elsif @user.shifts.last.check_in == true %>
+        <%= link_to "Clock out", edit_user_shift_path(@user,@user.shifts.last) %>
+      <% end %>
+    </h3>
 <table class="table">
   <thead>
     <tr>
@@ -12,16 +18,16 @@
       <th>Edit Info</th>
     </tr>
   </thead>
-  <tr>
-    <td><%= @user.first_name %></td>
-    <td><%= @user.last_name %></td>
-    <td><%= @user.title %></td>
-    <td><%= @user.access %></td>
-    <td><%= @user.sum_hours %></td>
-    <td><%= current_user.checked_in %></td>
-    <td><%= link_to "Edit Info", edit_company_user_path(@user.company_id,@user.id) %></td>
-  </tr>
-  </table>
+    <tr>
+      <td><%= @user.first_name %></td>
+      <td><%= @user.last_name %></td>
+      <td><%= @user.title %></td>
+      <td><%= @user.access %></td>
+      <td><%= @user.sum_hours %></td>
+      <td><%= current_user.checked_in %></td>
+      <td><%= link_to "Edit Info", edit_company_user_path(@user.company_id,@user.id) %></td>
+    </tr>
+</table>
 <hr>
 
 <h2>List of logged shifts</h2>
@@ -36,10 +42,11 @@
   </thead>
 <% @shifts.where(user_id: @user.id).each do |p|  %>
   <tr>
-<%binding.pry%>
-    <td><%= Time.parse(p.in_at).strftime("%d-%m-%Y") %></td>
-    <td><%= p.out_at %></td>
-    <td><%= p.logged_time %></td>
+    <td><%= p.in_at.localtime.to_formatted_s(:db) %></td>
+    <% if p.logged_time != nil %>
+    <td><%= p.out_at.localtime.to_formatted_s(:db) %></td>
+      <td><%= '%.2f'%p.logged_time.round(2) %></td>
+    <% end %>
 
 <% end %>
   </tr>

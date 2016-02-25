@@ -19,3 +19,9 @@ Parse with time (split datetime and set up time period for calculation)
 Geocoder
 
 css refractorying
+
+
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+undefined

@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       if user.authenticate( user.first_name[0] + user.last_name[0] + "123" )
-        session[:user_id] = user.id
         redirect_to company_user_new_pw_path(user.company_id,user.id)
       else
         session[:user_id] = user.id

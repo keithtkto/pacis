@@ -1,4 +1,4 @@
-<h2>Please fill in form to enroll new employee!</h2>
+<label class="star">*</label><h2>Please fill in form to enroll new employee!</h2>
 
 
 <div class="flex">
@@ -17,15 +17,15 @@
         </div>
       <% end %>
       <div class="field">
-          <%= f.label "First name" %><br>
+          <%= f.label "First name" %><label class="star">*</label><br>
           <%= f.text_field :first_name, :placeholder => "First Name*" %>
       </div>
       <div class="field">
-          <%= f.label "Last name" %><br>
+          <%= f.label "Last name" %><label class="star">*</label><br>
           <%= f.text_field :last_name, :placeholder => "Last Name*" %>
       </div>
       <div class="field">
-          <%= f.label "Email" %><br>
+          <%= f.label "Email" %><label class="star">*</label><br>
           <%= f.text_field :email, :placeholder => "Email*" %>
       </div>
       <div class="field">
@@ -42,7 +42,7 @@
           <%= f.text_field :pay_rate, :placeholder => "Pay rate" %>
       </div>
       <div class="field">
-          <%= f.label "Access level" %><br>
+          <%= f.label "Access level" %><label class="star">*</label><br>
           <%= f.select :access_lvl, options_for_select([
             ["Regular Employee", 1],
             ["Manager", 2],
