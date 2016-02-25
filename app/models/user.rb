@@ -30,7 +30,14 @@ class User < ActiveRecord::Base
       sum_hours += sh.logged_time
     end
     sum_hours
+  end
 
+  def checked_in
+    if User.find(self.id).shifts.where(logged_time: true)
+      "Yes"
+    else
+      "No"
+    end
   end
 
 

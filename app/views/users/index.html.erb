@@ -3,7 +3,8 @@
 
 <% if current_user.access_lvl > 1 %>
 <h1>List of employee in Company <%= current_company.name %></h1>
-<%= link_to "Enroll a new employee", company_users_new_employee_path(current_company.id) %>
+<h3><%= link_to "Enroll a new employee", company_users_new_employee_path(current_company.id) %></h3>
+  <br>
   <table class="table">
     <thead>
       <tr>
@@ -11,8 +12,8 @@
         <th>Last Name</th>
         <th>Title</th>
         <th>Manager/Employee</th>
-        <th>Logged Hours</th>
-        <th>In a shift?</th>
+        <th>Week Total(hrs)</th>
+        <th>On Shift</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
@@ -23,11 +24,16 @@
           <td><%= link_to user.title, company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to user.access, company_user_path(user.company_id,user.id) %></td>
           <td><%= user.sum_hours %></td>
+          <td><%= user.checked_in %></td>
+
           <% if user.access_lvl != 3 && current_user != user %>
-          <td><%= link_to "edit", edit_company_user_path(user.company_id,user.id) %></td>
+          <td><%= link_to "Edit Info", edit_company_user_path(user.company_id,user.id) %></td>
           <td><%= link_to 'Remove', company_user_path(user.company_id,user.id),
               method: :delete, data: { confirm: 'Are you sure, all employee info will be lost.' } %>
           </td>
+          <% else %>
+            <td></td>
+            <td></td>
           <% end %>
         </tr>
       <% end %>
@@ -36,9 +42,6 @@
 <% end %>
 
 
-
-Hours
-<%= current_user.sum_hours %>
 
 
 
