@@ -2,13 +2,60 @@
   display: none;
 }
 
+.picture {
+  background-image: url(https://i.imgur.com/SZlL0FB.png);
+  background-position: 0px -70px;
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* form_for */
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 label {
   font-size: 20px;
+}
+
+.front_page_login {
+  background: #cbeeed;
+  width: 250px;
+  padding: 35px 15px;
+  border-radius: 9px;
+  border: 5px solid #3a8b88;
+  margin-left: 4%;
+}
+
+.new-com-sign-up, .new-owner-sign-up {
+  background: #cbeeed;
+  width: 300px;
+  padding: 35px 15px;
+  border-radius: 9px;
+  border: 5px solid #3a8b88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .field {
   text-align: center;
 }
+
+.field > input, .new_company > input, .new_user > input {
+  width: 200px;
+  height: 10px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* form_for the end */
 
 
 body {
@@ -106,6 +153,36 @@ header > ul {
   float: left;
 
 }
+
+
+/* Select */
+select {
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+  background-color: #4bb3af;
+  background-repeat:no-repeat;
+  background-position: right 10px top 15px;
+  background-size: 16px 16px;
+  color:white;
+  padding:7px;
+  width: 220px;
+  font-size:11px;
+  font-weight:bold;
+  color:#fff;
+  text-align:center;
+  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  -webkit-appearance: none;
+  border:0;
+  outline:0;
+  margin: 10px;
+  -webkit-transition:0.3s ease all;
+     -moz-transition:0.3s ease all;
+      -ms-transition:0.3s ease all;
+       -o-transition:0.3s ease all;
+          transition:0.3s ease all;
+}
+/* end of select */
 
 /*
 .login {
@@ -314,11 +391,11 @@ input {
   background: white;
 }
 
-input:hover {
+/*input:hover {
   cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
-}
+}*/
 
-.btn-log-in {
+.btn-log-in, .new {
   color: white;
   border: 2px #54C7C3 solid;
   background: #54C7C3;
