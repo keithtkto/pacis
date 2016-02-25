@@ -3,6 +3,8 @@
 <%= form_for [@user,@shift] do |f| %>
   <div class="hidden">
     <%= f.text_field :out_at, :value => DateTime.now %>
+    <%= f.text_field :lat_out, :id => "lat", :value => "" %>
+    <%= f.text_field :long_out, :id => "long", :value => "" %>
   </div>
   <%= f.submit "Clock Out!", :class => "btn-out" %>
 <% end %>
@@ -10,6 +12,7 @@
 <div class="timer">
   <label> This Shift </label> <br>
   <label id="hours">--</label><label> hr </label><label id="minutes">--</label><label> min </label><label id="seconds">--</label><label> sec</label>
+     <label class="hidden" id="hid"><%= Time.now - @shift.created_at %></label>
 </div>
 
 
@@ -24,36 +27,85 @@
 
 
 
-
 <script type="text/javascript">
-    var hoursLabel = document.getElementById("hours");
-    var minutesLabel = document.getElementById("minutes");
-    var secondsLabel = document.getElementById("seconds");
-    var totalSeconds = parseInt(<%= Time.now - @shift.created_at %>);
+    // var hoursLabel = document.getElementById("hours");
+    // var minutesLabel = document.getElementById("minutes");
+    // var secondsLabel = document.getElementById("seconds");
+    // var totalSeconds = parseInt(<%= Time.now - @shift.created_at %>);
 
 
-    setInterval(setTime, 1000);
+    // setInterval(setTime, 1000);
 
-    function setTime()
-    {
-        ++totalSeconds;
-        secondsLabel.innerHTML = pad(totalSeconds%60);
-        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)%60);
-        hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
-    }
+    // function setTime()
+    // {
+    //     ++totalSeconds;
+    //     secondsLabel.innerHTML = pad(totalSeconds%60);
+    //     minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)%60);
+    //     hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
+    // }
 
-    function pad(val)
-    {
-        var valString = val + "";
-        if(valString.length < 2)
-        {
-            return "0" + valString;
-        }
-        else
-        {
-            return valString;
-        }
-    }
+    // function pad(val)
+    // {
+    //     var valString = val + "";
+    //     if(valString.length < 2)
+    //     {
+    //         return "0" + valString;
+    //     }
+    //     else
+    //     {
+    //         return valString;
+    //     }
+    // }
+
+
+// Lat Long
+
+// var latitude = null;
+// function lat()
+// {
+// if (navigator.geolocation)
+// {
+//     navigator.geolocation.getCurrentPosition(
+//         function(position){
+//               latitude = position.coords.latitude;
+//         });
+// }
+// }
+
+// var longitude = null;
+// function lon()
+// {
+// if (navigator.geolocation)
+// {
+//     navigator.geolocation.getCurrentPosition(
+//         function(position){
+//             longitude = position.coords.longitude;
+//         });
+//     }
+// }
+
+// window.addEventListener('DOMContentLoaded', function ()
+//     {
+//         lat();
+//         lon();
+//         latitude;
+//         longitude;
+//     });
+
+
+
+
+
+//   window.addEventListener("click", function ()
+//     {   var lati =  document.getElementById("lat");
+//         var long = document.getElementById("long");
+//         lati.value = latitude;
+//         long.value = longitude;
+//     }, false);
+
+
+
+
 </script>
 
 

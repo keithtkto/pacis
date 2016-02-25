@@ -12,7 +12,7 @@ class Shift < ActiveRecord::Base
   end
 
   def weekly_pay
-    Shift.where(created_at: (DateTime.now - 7.day)..Time.now.midnight)
+    Shift.where(created_at: (DateTime.now.midnight - 7.day)..Time.now.midnight)
   end
 
 

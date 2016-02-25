@@ -4,7 +4,9 @@
 <%= form_for [@user,@shift] do |f| %>
 
     <div class="hidden">
-      <%= f.text_field :in_at, :value => DateTime.now %>
+    <%= f.text_field :in_at, :value => DateTime.now %>
+    <%= f.text_field :lat_in, :id => "lat", :value => "" %>
+    <%= f.text_field :long_in, :id => "long", :value => "" %>
     </div>
 
   <%= f.submit "Clock In!", :class => "btn-in"%>

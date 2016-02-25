@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def checked_in
-    if User.find(self.id).shifts.where(logged_time: true)
+    if User.find(self.id).shifts.last.logged_time == true
       "Yes"
     else
       "No"
