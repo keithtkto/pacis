@@ -12,7 +12,8 @@
 
 <header>
   <ul>
-  <img class="logo" src="https://i.imgur.com/XTloRNF.png">
+  <%= link_to image_tag("https://i.imgur.com/XTloRNF.png"), root_path, :class => "logo" %>
+<!--   <img class="logo" src="https://i.imgur.com/XTloRNF.png"> -->
     <% if current_user %>
       <li class="log-out-btn"><%= link_to 'Log-out', session_path('dummy'), method: :delete %></li>
       <div class="welcome">

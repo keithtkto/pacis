@@ -1,6 +1,6 @@
 
 <div class="picture">
-  <div class="front_page_login">
+  <div class="front-page-login">
   <h1>LOG IN</h1>
   <% if not current_user %>
       <%= form_tag sessions_path do %>
@@ -16,6 +16,7 @@
       <% end %>
   <%end%>
   </div>
+
 </div>
 
 
@@ -24,13 +25,14 @@
 
 <section class="info">
 
-    <div class="front-page-sign-in">
-      <h1>Time tracking made easy</h1>
-      <h2>Time card and payroll management application design for
-            your small business and your employees</h2>
-    </div>
 
-    <h2><%= link_to "Registar Your Company With Pacis", new_company_path %></h2>
+  <div class="front-page-sign-in">
+    <h1>Time tracking made easy</h1>
+    <h2>Time card and payroll management application design for
+          your small business and your employees</h2>
+  </div>
+  <br><br>
+  <h2><%= link_to "Registar Your Company With Pacis", new_company_path %></h2>
 
     <div class="intro">
       <div class="big-icons">
@@ -124,6 +126,11 @@
     </div>
   <div class="sign-up">
     <h2>Free and simple time card and payroll management. Set up in minutes!</h2>
+    <ul>
+      <li>
+        <%= link_to 'Get started today, for Free!', new_company_path, :class => "footer-sign-up" %>
+      </li>
+    </ul>
   </div>
 </section>
 

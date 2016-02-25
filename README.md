@@ -11,9 +11,11 @@ Pacis is a web application for small bussiness payroll and time card management.
 
 ###[Github page](https://github.com/keithtkto/pacis)
 
+Pair coding
+JS does not work 
+
+Parse with time (split datetime and set up time period for calculation)
 
 Geocoder
 
-Parse with time
-
-JS does not work 
+css refractorying
