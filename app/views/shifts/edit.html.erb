@@ -1,49 +1,67 @@
 <h1>Time Clock Out</h1>
-
-
+<%= link_to "Back to User", company_users_path(@user) %>
+<br>
+<div class="timer">
+  <label> This session </label> <br>
+  <label id="hours">--</label><label> hr </label><label id="minutes">--</label><label> min </label><label id="seconds">--</label><label> sec</label>
+  <label class="hidden" id="hidden"><%= Time.now - @shift.created_at %></label>
+</div>
 <%= form_for [@user,@shift] do |f| %>
 
-    <div class="hidden">
-      <%= f.text_field :out_at, :value => DateTime.now %>
-    </div>
+  <div class="hidden">
+    <%= f.text_field :out_at, :value => DateTime.now %>
+  </div>
 
-  <%= f.submit "Clock Out!" %>
+  <%= f.submit "Clock Out!", :class => "btn-out" %>
 <% end %>
 
 
-<%= link_to "Back to User", company_users_path(@user) %>
 
 
 
-  <label id="hours">--</label><label>:</label><label id="minutes">--</label><label>:</label><label id="seconds">--</label>
-    <label class="hidden" id="hidden"><%= Time.now - @shift.created_at %></label>
-    <script type="text/javascript">
-        var hoursLabel = document.getElementById("hours");
-        var minutesLabel = document.getElementById("minutes");
-        var secondsLabel = document.getElementById("seconds");
-        var totalSec = document.getElementById("hidden").innerText;
-        var totalSeconds = parseInt(totalSec);
 
-        setInterval(setTime, 1000);
 
-        function setTime()
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var hoursLabel = document.getElementById("hours");
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var totalSec = document.getElementById("hidden").innerHTML;
+    var totalSeconds = parseInt(totalSec);
+
+    setInterval(setTime, 1000);
+
+    function setTime()
+    {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds%60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)%60);
+        hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
+    }
+
+    function pad(val)
+    {
+        var valString = val + "";
+        if(valString.length < 2)
         {
-            ++totalSeconds;
-            secondsLabel.innerHTML = pad(totalSeconds%60);
-            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)%60);
-            hoursLabel.innerHTML = pad(parseInt(totalSeconds/3600));
+            return "0" + valString;
         }
-
-        function pad(val)
+        else
         {
-            var valString = val + "";
-            if(valString.length < 2)
-            {
-                return "0" + valString;
-            }
-            else
-            {
-                return valString;
-            }
+            return valString;
         }
-    </script>
+    }
+</script>
+
+
+
+
+
+
+
