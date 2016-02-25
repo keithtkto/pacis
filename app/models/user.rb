@@ -37,12 +37,17 @@ class User < ActiveRecord::Base
   end
 
   def checked_in
-    if User.find(self.id).shifts.last.logged_time == true
-      "Yes"
-    else
+    if User.find(self.id).shifts.first == nil
       "No"
+    else
+      if User.find(self.id).shifts.last.logged_time == true
+        "Yes"
+      else
+        "No"
+      end
     end
   end
+
 
 
 private

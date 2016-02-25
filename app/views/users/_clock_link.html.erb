@@ -1,0 +1,11 @@
+<h3>
+  <% if User.find(current_user.id).shifts.first == nil %>
+    <%= link_to "Clock In", new_user_shift_path(current_user) %>
+  <% else %>
+    <% if @user.shifts.last.check_in == false %>
+      <%= link_to "Clock In", new_user_shift_path(@user) %>
+    <% elsif @user.shifts.last.check_in == true %>
+      <%= link_to "Clock out", edit_user_shift_path(@user,@user.shifts.last) %>
+    <% end %>
+  <% end %>
+</h3>

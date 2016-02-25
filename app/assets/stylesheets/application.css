@@ -395,6 +395,10 @@ li {
 
 /* tables */
 
+.table {
+  float: center;
+}
+
 th {
   color: #6D929B;
   border-right: 1px solid #C1DAD7;
