@@ -34,6 +34,32 @@
     <% end %>
   </ul>
 </header>
+
+<% if session[:user_id] && current_user.access_lvl == 3 %>
+  <ul class="side-nav">
+    <li><%= link_to "Home", company_users_path(current_user.company_id), :class => "active"%></li>
+    <li>
+      <% if User.find(current_user.id).shifts.first == nil %>
+        <%= link_to "Clock In", new_user_shift_path(current_user) %>
+      <% else %>
+        <% if current_user.shifts.last.check_in == false %>
+          <%= link_to "Clock In", new_user_shift_path(current_user) %>
+        <% elsif current_user.shifts.last.check_in == true %>
+          <%= link_to "Clock out", edit_user_shift_path(current_user,current_user.shifts.last), :style => 'background: #c75458;' %>
+        <% end %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "Your Log", company_user_path(current_user.company_id,current_user.id) %>
+    </li>
+    <li><a href="#paystub">Pay Stubs</a></li>
+    <li>
+      <%= link_to "Perference", edit_company_user_path(current_user.company_id,current_user.id) %>
+    </li>
+    <li><%= link_to 'Log-out', session_path('dummy'), method: :delete %></li>
+  </ul>
+<% end %>
+
 <%= yield %>
 
 </body>
