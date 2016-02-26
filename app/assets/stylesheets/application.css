@@ -431,7 +431,8 @@ li {
 /* tables */
 
 .table {
- margin-left: 160px;
+ margin-left: 150px;
+ width: 87%;
 
 }
 
@@ -596,12 +597,26 @@ ul {
 .portion-header {
   font-size: 30px;
   text-align: left;
-  margin-left: 170px;
+  margin-left: 160px;
 }
 
-
-/*.info * {
-text-align: center;
-margin-left: 0px;
+.enroll {
+  text-align: left;
+  margin: 0 0 0 160px;
 }
-*/
+
+.shift {
+  font-size: 30px;
+}
+
+.shift-box {
+  border: 3px solid #4bb3af;
+  background: #CAE8EA;
+  border-radius: 10px;
+  padding: 15px;
+  width: 350px;
+  height: 300px;
+  margin: 10% 10% 10% 35%;
+
+}
+

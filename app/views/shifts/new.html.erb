@@ -1,18 +1,17 @@
-<h2>Click clock-in button below to begin this shift!</h2>
+<div class="shift-box">
+  <h2 class="shift">CLICK BUTTON TO<BR> START SHIFT</h2>
 
+  <%= form_for [@user,@shift] do |f| %>
+      <div class="hidden">
+      <%= f.text_field :in_at, :value => DateTime.now %>
+      <%= f.text_field :lat_in, :id => "lat", :value => "" %>
+      <%= f.text_field :long_in, :id => "long", :value => "" %>
+      </div>
+    <%= f.submit "Clock In!", :class => "btn-in"%>
+  <% end %>
+  <div class="timer">
+      <label> Current Shift </label> <br>
+      <label id="hours">00</label><label> hr </label><label id="minutes">00</label><label> min </label><label id="seconds">00</label><label> sec</label>
+  </div>
 
-<%= form_for [@user,@shift] do |f| %>
-
-    <div class="hidden">
-    <%= f.text_field :in_at, :value => DateTime.now %>
-    <%= f.text_field :lat_in, :id => "lat", :value => "" %>
-    <%= f.text_field :long_in, :id => "long", :value => "" %>
-    </div>
-
-  <%= f.submit "Clock In!", :class => "btn-in"%>
-<% end %>
-
-
-
-<%= link_to "Back to User", company_users_path(@user) %>
-
+</div>
