@@ -215,9 +215,14 @@ select {
 
 
 h1 {
-  margin-top: -10px;
-  padding: 10px 0;
+  margin-top: 30px;
+  padding: 20px 0 10px 0;
   font-size: 40px;
+}
+
+.front-page-login > h1 {
+  padding-top: 0;
+  margin-top: 0;
 }
 
 h5 {
@@ -586,6 +591,12 @@ ul {
 
 .register {
   font-size: 30px;
+}
+
+.portion-header {
+  font-size: 30px;
+  text-align: left;
+  margin-left: 170px;
 }
 
 

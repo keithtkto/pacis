@@ -2,7 +2,7 @@
 
 
 <% if current_user.access_lvl > 1 %>
-<h1>List of employee in Company <%= current_company.name %></h1>
+<h2 class="portion-header">List of employee in Company <%= current_company.name %></h2>
 <h3><%= link_to "Enroll a new employee", company_users_new_employee_path(current_company.id) %></h3>
   <br>
 <div class="table">
