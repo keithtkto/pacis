@@ -7,11 +7,12 @@
   background-position: 0px;
   background-size: cover;
   height: 600px;
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
 }
 
 /* form_for */
@@ -32,8 +33,6 @@ label {
   padding: 35px 15px;
   border-radius: 9px;
   border: 5px solid #3a8b88;
-  margin-left: 4%;
-
 }
 
 .new-com-sign-up, .new-owner-sign-up {
@@ -621,7 +620,7 @@ ul {
   padding: 15px;
   width: 350px;
   height: 300px;
-  margin: 20% 10% 10% 40%;
+  margin: 13% 10% 10% 40%;
 }
 
 .low {
@@ -633,7 +632,21 @@ ul {
 }
 
 .mac > img {
-  width: 400px;
-  height: 300px;
+  width: 700px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
+  border: 4px solid #3a8b88;
+  margin-left: -100px;
+}
+
+.pic-text {
+  position: absolute;
+  top: 20px;
+  background: rgba(248,248,255,0.5);
+  width: 100%;
+  color: black;
+  font-weight: 300;
+
 }
 
