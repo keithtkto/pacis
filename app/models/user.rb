@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
       elsif self.access_lvl == 2
         "Manager"
       else
-        "Regular Employee"
+        "Employee"
       end
   end
 

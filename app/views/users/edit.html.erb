@@ -1,4 +1,4 @@
-<h2>Edit Employee Info</h2>
+<h2 class="edit">Edit Employee Info</h2>
 
 <% if @user.access_lvl < 3 %>
   <h3><%= link_to 'Remove this employee', company_users_path(current_company),

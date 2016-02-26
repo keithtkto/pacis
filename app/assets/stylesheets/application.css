@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 60px;
 }
 
 /* form_for */
@@ -82,15 +83,15 @@ body {
 
 
 header {
-  position: static;
+  position: fixed;
   width: 100%;
-  height: 20px;
+  height: 55px;
   padding-bottom: 70px;
   top: -20px;
-/*  right: -30px;
-  left: -30px;*/
   background: white;
   margin-top: -40px;
+  z-index: 2;
+
 }
 
 header > ul {
@@ -111,6 +112,7 @@ header > ul {
   border-radius: 11px;
   margin-right: -10px;
   box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.3),inset 0 70px 0 0 rgba(255,255,255,0.15);
+  margin-top: 33px;
 }
 
 .log-out-btn > a {
@@ -123,6 +125,7 @@ header > ul {
   top: 10px;
   display: static;
   margin-bottom: -10px;
+  margin-top: 17px;
 }
 
 .welcome > li {
@@ -139,6 +142,7 @@ header > ul {
   border-radius: 11px;
   margin-right: 10px;
   box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.3),inset 0 70px 0 0 rgba(255,255,255,0.15);
+  margin-top: 29px;
 }
 
 
@@ -157,7 +161,7 @@ header > ul {
   border-radius: 11px;
   background-color: #cbeeed;
   box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.3),inset 0 70px 0 0 rgba(255,255,255,0.15);
-
+  margin-top: 29px;
 }
 
 .sign-in-btn:hover {
@@ -171,7 +175,7 @@ header > ul {
   max-width: 195px;
   margin-left: 15px;
   float: left;
-
+  margin-top: 20px;
 }
 
 
@@ -558,7 +562,6 @@ ul {
 
 .side-nav {
     list-style-type: none;
-    margin-top: 0;
     padding: 0;
     width: 140px;
     height: 100%;
@@ -566,9 +569,9 @@ ul {
     font-size: 20px;
     line-height: 1.5em;
     border-radius: 4px;
-/*    box-shadow: 4px 4px 8px #888888;
-*/  position: fixed;
+    position: fixed;
     clear: left;
+    top: 43px;
 }
 
 .side-nav a {
@@ -598,6 +601,8 @@ ul {
   font-size: 30px;
   text-align: left;
   margin-left: 160px;
+  margin-top: 75px;
+  margin-bottom: 10px;
 }
 
 .enroll {
@@ -616,7 +621,19 @@ ul {
   padding: 15px;
   width: 350px;
   height: 300px;
-  margin: 10% 10% 10% 35%;
+  margin: 20% 10% 10% 40%;
+}
 
+.low {
+  margin-top: 10px;
+}
+
+.edit {
+  margin-top: 100px;
+}
+
+.mac > img {
+  width: 400px;
+  height: 300px;
 }
 
