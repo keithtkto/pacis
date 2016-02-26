@@ -6,7 +6,7 @@
       <%= form_tag sessions_path do %>
         <div class="field">
           <%= label_tag :email %><label class="star">*</label><br>
-          <%= text_field_tag :email, params[:email] %>
+          <%= text_field_tag :email, params[:email], :placeholder => "js@pacis.com" %>
         </div>
         <div class="field">
           <%= label_tag :password %><label class="star">*</label><br>

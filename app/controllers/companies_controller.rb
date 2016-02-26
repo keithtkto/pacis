@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
 
     if @company.update_attributes(company_params)
-      redirect_to root_path
+      redirect_to company_users_path(:id)
     else
       render :edit
     end
