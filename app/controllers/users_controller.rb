@@ -46,8 +46,8 @@ class UsersController < ApplicationController
       @user.password = "123"
       @user.password_confirmation = "123"
       if @user.save
-        @user.password = @user.first_name[0] + @user.last_name[0] + "123"
-        @user.password_confirmation =  @user.first_name[0] + @user.last_name[0] +  "123"
+        @user.password = (@user.first_name[0] + @user.last_name[0] + "123").downcase
+        @user.password_confirmation =  (@user.first_name[0] + @user.last_name[0] +  "123").downcase
         @user.save
         flash[:notice] = " Hello, '#{@username}!"
         redirect_to company_users_path(current_company)

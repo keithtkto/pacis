@@ -50,7 +50,7 @@ label {
   text-align: center;
 }
 
-.field > input, .new_company > input, .new_user > input {
+.field > input, .new_company > input, .new_user > input, .field_with_errors > input  {
   width: 200px;
   height: 10px;
   border-radius: 2px;
@@ -647,6 +647,9 @@ ul {
   width: 100%;
   color: black;
   font-weight: 300;
+}
 
+.front-page-login > h4 {
+  margin-top: -20px;
 }
 
