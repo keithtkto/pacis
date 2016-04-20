@@ -1,0 +1,31 @@
+<h2 class="portion-header">Paystubs</h2>
+
+<h3 class="enroll"><%= link_to "Create a new paystubs", new_user_paystub_path(current_user.id) %></h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Period</th>
+      <th>Pay Rate</th>
+      <th>Hours</th>
+      <th>Amount (USD)</th>
+    </tr>
+  </thead>
+
+  <tr>
+  <% @paystubs.each do |s| %>
+    <% if s.user_id == current_user.id %>
+      <td><%= link_to "#{s.user.first_name} #{s.user.last_name}", user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.start_date, user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.end_date, user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.pp, user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.current_pay_rate, user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.total_time, user_paystub_path(s.user.id,s) %></td>
+      <td><%= link_to s.amount, user_paystub_path(s.user.id,s) %></td>
+    <% end %>
+  <% end %>
+  </tr>
+</table>

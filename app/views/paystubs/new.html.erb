@@ -1,0 +1,25 @@
+<div class="shift-box">
+  <%= form_for [@user,@paystub] do |f| %>
+
+        <div class="field">
+          <%= f.label "Pay Period End Date" %><br>
+          <%= f.date_field :end_date, :start_year => 1899 %>
+        </div>
+        <div class="field">
+            <%= f.label "Paid Period" %><label class="star">*</label><br>
+            <%= f.select :period, options_for_select([
+              ["Weekly", 6],
+              ["Biweekly", 14],
+              ["Monthly", 28]
+            ]) %>
+        </div>
+
+        <div class="hidden">
+
+        <%= f.text_field :current_pay_rate, :value => 10 %>
+        <%= f.text_field :total_time, :value =>5.0 %>
+        <%= f.text_field :user_id, :value => 1 %>
+        </div>
+      <%= f.submit "Generate PayStub", :class => "btn-in generate-paystubs" %>
+  <% end %>
+</div>

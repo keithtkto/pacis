@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224193205) do
+ActiveRecord::Schema.define(version: 20160226162347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 20160224193205) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "paystubs", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "period"
+    t.float    "current_pay_rate"
+    t.float    "total_time"
+    t.decimal  "amount"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "paystubs", ["user_id"], name: "index_paystubs_on_user_id", using: :btree
 
   create_table "shifts", force: :cascade do |t|
     t.boolean  "payed"
@@ -62,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160224193205) do
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
 
+  add_foreign_key "paystubs", "users"
   add_foreign_key "shifts", "users"
   add_foreign_key "users", "companies"
 end

@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Pacis</title>
+  <meta name="viewport" content="user-scalable=yes">
+
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -13,7 +15,6 @@
 <header>
   <ul>
   <%= link_to image_tag("https://i.imgur.com/XTloRNF.png"), root_path, :class => "logo" %>
-<!--   <img class="logo" src="https://i.imgur.com/XTloRNF.png"> -->
     <% if current_user %>
       <li class="log-out-btn"><%= link_to 'Log-out', session_path('dummy'), method: :delete %></li>
       <div class="welcome">
@@ -52,7 +53,9 @@
     <li>
       <%= link_to "Your Log", company_user_path(current_user.company_id,current_user.id) %>
     </li>
-    <li><a href="#paystub">Pay Stubs</a></li>
+    <li>
+      <%= link_to "Pay Stubs", user_paystubs_path(current_user) %>
+    </li>
     <li>
       <%= link_to "Edit Info", edit_company_user_path(current_user.company_id,current_user.id) %>
     </li>

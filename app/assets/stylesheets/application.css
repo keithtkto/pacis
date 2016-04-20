@@ -33,6 +33,8 @@ label {
   padding: 35px 15px;
   border-radius: 9px;
   border: 5px solid #3a8b88;
+  margin-left: 40px;
+  margin-top: 40px;
 }
 
 .new-com-sign-up, .new-owner-sign-up {
@@ -69,18 +71,6 @@ body {
   margin: 0;
 }
 
-/*p {
-  text-align: left;
-}
-*/
-
-/*h1,h2,h3,h4 {
-  text-align: left;
-  margin-left: 165px;
-}
-*/
-
-
 header {
   position: fixed;
   width: 100%;
@@ -90,7 +80,6 @@ header {
   background: white;
   margin-top: -40px;
   z-index: 2;
-
 }
 
 header > ul {
@@ -446,16 +435,10 @@ th {
   border-top: 1px solid #C1DAD7;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-align: left;
+  text-align: center;
   padding: 6px 6px 6px 12px;
   background: #CAE8EA url(images/bg_header.jpg) no-repeat;
 }
-
-
-
-
-
-
 
 td {
   border-right: 1px solid #C1DAD7;
@@ -481,10 +464,6 @@ input {
   display: inline-block;
   background: white;
 }
-
-/*input:hover {
-  cursor: url(http://cur.cursors-4u.net/symbols/sym-1/sym46.cur), auto;
-}*/
 
 .btn-log-in, .new {
   color: white;
@@ -524,9 +503,6 @@ input {
   color: white;
   background-color: #cf4436;
 }
-
-
-
 
 /* Timer */
 .timer > label {
@@ -632,13 +608,20 @@ ul {
 }
 
 .mac > img {
-  width: 700px;
-  height: 400px;
+  max-width: 750px;
   background: white;
   border-radius: 10px;
   border: 4px solid #3a8b88;
-  margin-left: -100px;
+  margin-top: 20px;
 }
+
+
+@media (max-width: 600px), (max-height: 600px) {
+  .mac > img {
+    display: none;
+  }
+}
+
 
 .pic-text {
   position: absolute;
@@ -653,3 +636,6 @@ ul {
   margin-top: -20px;
 }
 
+.generate-paystubs {
+  width: 70%;
+}

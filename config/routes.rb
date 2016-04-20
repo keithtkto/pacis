@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     resources :users
   end
 
+
   resources :users do
     resources :shifts
+    resources :paystubs, only: [:index, :show, :new, :create]
   end
 
   resources :sessions, only: [:new, :create, :destroy]
